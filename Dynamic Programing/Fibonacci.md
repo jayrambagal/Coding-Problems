@@ -1,55 +1,88 @@
 
-## Template
-
-Given an array Arr[] of N integers. Find the contiguous sub-array(containing at least one number) which has the maximum sum and return its sum.
+## Fibonacci Number
+Given a number n. find the nth fibonacci number.
 ## Example 1
 
 
 ```bash
-Input:
-N = 5
-Arr[] = {1,2,3,-2,5}
-Output:
-9
-Explanation:
-Max subarray sum is 9
-of elements (1, 2, 3, -2, 5) which 
-is a contiguous subarray.
+Input 1:
+n = 3 
+Output: 2
+
+n = 5
+Output: 5
+
 ```
 
-## Solution 1
+## Solution 1 (Recursion)
 
 ```Python
 
-def maxSubArraySum(self,arr,N):
-        
-        count=0
-        max_count=-999999999
-        
-        for i in range(0,N):
-            count = count+arr[i]
-            
-            if max_count<count:
-                max_count=count
-                
-            if count<0:
-                count=0
-                
-        return max_count
+def fibonacci(n):
+    
+    if n==1:
+        return 1
+    if n==0: return 0
+    
+    return fibonacci(n-1)+fibonacci(n-2)
+    
+n=3
+print(fibonacci(n))
 
 ```
+### Complexity
+ 
+```bash
+Time Complexity : O(2^n)
+Space Complexity : O(n)
+```
+## Solution 2 (Dynamic Programing)-->memoization
 
+```Python
 
+def fibonacci(n,dp):
+    
+    if n==1:
+        return 1
+    if n==0: return 0
+    
+    if dp[n]!= -1:
+        return dp[n]
+    
+    dp[n]=fibonacci(n-1,dp)+fibonacci(n-2,dp)
+    
+    return dp[n]
+    
+n=3
+dp=[-1]*(n+1)
+print(fibonacci(n,dp))
 
-## Geeksforgeeks
-[Kadane's Algorithm ](https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1/?page=1&difficulty[]=1&category[]=Arrays&sortBy=submissions)
-
+```
 ### Complexity
  
 ```bash
 Time Complexity : O(n)
+Space Complexity : O(n)+O(n)
+```
+## Solution 3 (Dynamic Programing) --> Tabulation and space optimization
+```Python
+def fibonacci(n):
+    prev1 = 1
+    prev2 = 0
+    
+    for i in range(2,n+1):
+        curr = prev1+prev2
+        prev2=prev1
+        prev1=curr
+        
+    return prev1
+        
+n=5
+print(fibonacci(n))
+```
+```bash
+Time Complexity : O(n)
 Space Complexity : O(1)
-
-
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
-
+```
+## Geeksforgeeks
+[]()
