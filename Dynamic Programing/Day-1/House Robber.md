@@ -58,5 +58,5 @@ class Solution:
 Time Complexity : O(n)
 Space Complexity : O(n)
 ```
-## Geeksforgeeks
+## LeetCode
 [House Robber II](https://leetcode.com/problems/house-robber-ii/)
