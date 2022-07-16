@@ -16,6 +16,7 @@ Explanation: The (number-basket) pairs are
 ## Solution 1 (Recursion)
 
 ```Python
+
 class Solution:
     def disarrange(self, n):
         
@@ -37,9 +38,26 @@ Space Complexity : O(n)
 ## Solution 2 (Dynamic Programing)-->memoization
 
 ```Python
+from sys import stdin, setrecursionlimit
+import sys
+setrecursionlimit(10**6)
 
-
-
+class Solution:
+    def solve(self, n,dp):
+        
+        if n==1:return 0
+            
+        if n==2:return 1
+        
+        if dp[n] != -1: return dp[n]
+        
+        dp[n] = ((n-1)*(self.solve((n-1),dp) + self.solve((n-2),dp)))%1000000007
+        
+        return dp[n]
+        
+    def disarrange(self, n):
+        dp = [-1]*(n+1)
+        return self.solve(n,dp)
 ```
 ### Complexity
  
@@ -47,9 +65,64 @@ Space Complexity : O(n)
 Time Complexity : O(n)
 Space Complexity : O(n)+O(n)
 ```
-## Solution 3 (Dynamic Programing) --> space optimization
+## Solution 3 (Dynamic Programing) --> Tabulation
+```Python
+from sys import stdin, setrecursionlimit
+import sys
+setrecursionlimit(10**6)
+MOD = 1000000007
+
+
+
+class Solution:
+    
+    def disarrange(self, n):
+        return self.solve(n)
+            
+    def solve(self, n):
+        
+        dp = [0 for x in range(n+1)]
+        
+        dp[1] = 0
+        dp[2] = 1
+        
+        for i in range(3,n+1):
+            dp[i] = (((i - 1) * (dp[i - 1]  + dp[i - 2] ) )) % MOD
+            
+        return dp[n]
+```
+```bash
+Time Complexity : O(n)
+Space Complexity : O(n)
+```
+## Solution 3 (Dynamic Programing) --> Space Optimization
 ```Python
 
+from sys import stdin, setrecursionlimit
+import sys
+setrecursionlimit(10**6)
+MOD = 1000000007
+
+
+
+class Solution:
+    
+    def disarrange(self, n):
+        return self.solve(n)
+            
+    def solve(self, n):
+        prev2 = 0
+        prev1 = 1
+        
+        for i in range(3,n+1): 
+             
+            summ = prev1 + prev2
+            ans = ((i - 1) * summ ) % MOD
+            
+            prev2 = prev1
+            prev1 = ans
+            
+        return prev1
 ```
 ```bash
 Time Complexity : O(n)
