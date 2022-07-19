@@ -75,6 +75,12 @@ def solve(num,tar,dp):
 ```
 ### Complexity
  
+
+```bash
+Time Complexity : O(n)
+Space Complexity : O(n)+O(n)
+```
+## Solution 3 (Dynamic Programing) --> Tabulation
 ```python 
  from typing import List
 
@@ -84,8 +90,8 @@ def findWays(num: List[int], tar: int) -> int:
     dp = [0 for _ in range(tar + 1)]
     
     dp[0] = 1
-    for i in range(1, tar+1):
-        for j in range(n):
+    for i in range(1, tar+1):   # n time complexity
+        for j in range(n):      # m 
 
             if i - num[j] >= 0:
                 dp[i] += dp[i - num[j]]
@@ -94,20 +100,12 @@ def findWays(num: List[int], tar: int) -> int:
     
 ```
 ```bash
-Time Complexity : O(n)
-Space Complexity : O(n)+O(n)
-```
-## Solution 3 (Dynamic Programing) --> Tabulation
-```Python
-
-```
-```bash
-Time Complexity : O(n)
+Time Complexity : O(n*m)
 Space Complexity : O(n)
 ```
 ## Solution 3 (Dynamic Programing) --> Space Optimization
 ```Python
-
+#Space optimization  Not Possible
 
 ```
 ```bash
