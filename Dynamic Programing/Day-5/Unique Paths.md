@@ -122,4 +122,4 @@ Time Complexity : O(n)
 Space Complexity : O(1)
 ```
 ## GeeksforGeeks
-[Ninjas training](https://www.codingninjas.com/codestudio/problems/ninja-s-training_3621003?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos&leftPanelTab=1)
+[unique path](https://practice.geeksforgeeks.org/problems/number-of-unique-paths5339/1)
