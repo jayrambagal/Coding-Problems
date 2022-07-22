@@ -77,28 +77,37 @@ Space Complexity: O(m*n) + O(m+n)
 ## Solution 3 (Dynamic Programing) --> Tabulation
 ```Python
 class Solution:
-    def uniquePaths(self, m: int, n: int) -> int:
+    def minPathSum(self, grid: List[List[int]]) -> int:
         
-        return self.solve(m,n)
+        
+        m =len(grid)
+        n =len(grid[0])
+        dp = [[-1 for _ in range(n+1)]for __ in range(m+1)]
+        
+        return self.solve(m,n,grid)
     
-    def solve(self,m,n):
+    def solve(self,m,n,grid):
         dp = [[-1 for _ in range(n)] for __ in range(m)]
         
         for i in range(m):
             for j in range(n):
                 
                 if i==0 and j==0:
-                    dp[i][j] =1
+                    dp[i][j]=grid[i][j]
+                    
                 else:
-                    up = 0
-                    left = 0
+                    up = grid[i][j]
+                    left = grid[i][j]
                     
                     if i>0:
-                        up = dp[i-1][j]
+                        up =grid[i][j]+ dp[i-1][j]
+                    else:up+=1e9
+                        
                     if j>0:
-                        left = dp[i][j-1]
+                        left =grid[i][j]+ dp[i][j-1]
+                    else:left+=1e9
                     
-                    dp[i][j] = up + left
+                    dp[i][j] = min(up ,left)
                 
         return dp[m-1][n-1]
 
