@@ -134,7 +134,7 @@ class Solution:
 ```bash
 Time Complexity : O(n*n) + O(n)
 Space Complexity : O(n*n)
-
+```
 ## Geeksforgeeks
 
-[Maximum Path](https://practice.geeksforgeeks.org/problems/path-in-matrix3805/1)
+[Maximum Path in Matrix](https://practice.geeksforgeeks.org/problems/path-in-matrix3805/1)
