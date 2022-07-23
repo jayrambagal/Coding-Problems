@@ -50,64 +50,90 @@ class Solution:
 ### Complexity
  
 ```bash
-Time Complexity : O(2^n*m)
-Space Complexity : O(m+n)  --> Stack space
+Time Complexity : O(3^n)
+Space Complexity : O(n)  --> Stack space
 ```
 ## Solution 2 (Dynamic Programing)-->memoization
 
 ```Python
-def minimumPathSum(triangle, n):
-    dp = [[-1 for _ in range(n)]for __ in range(n)]
-    return solve(triangle,n,0,0,dp)
-
-def solve(triangle,n,i,j,dp):
-    
-    if i == n-1:
-        return triangle[n-1][j]
-    if dp[i][j] != -1:
-        return dp[i][j]
+class Solution:
+    def maximumPath(self, N, Matrix):
         
-    down = triangle[i][j] + solve(triangle,n,i+1,j,dp)
-    diagonal = triangle[i][j] + solve(triangle,n,i+1,j+1,dp)
+        dp = [[-1 for _ in range(N)]for __ in range(N)]
+        
+        return self.solve(N,Matrix,N-1,0,dp)
     
-    dp[i][j] = min(down,diagonal)
-    
-    return dp[i][j]
+    def solve(self,n,mat,i,j,dp):
+        
+        if i==0:return mat[0][j]
+        
+        if j<0 or j>=n:
+            return 0
+        
+        if dp[i][j] != -1:
+            dp[i][j] = mat[i][j]
+            
+        up = mat[i][j] + self.solve(n,mat,i-1,j,dp)
+        left_digonal = mat[i][j] + self.solve(n,mat,i-1,j-1,dp)
+        right_digonal = mat[i][j] + self.solve(n,mat,i-1,j+1,dp)
+        
+        
+        dp[i][j] = max(up,left_digonal,right_digonal)
+        
+        return dp[i][j]
         
 ```
 ### Complexity
  
 ```bash
-Time Complexity: O(m*n)
-Space Complexity: O(m*n) + O(m+n)
+Time Complexity: O(n*n)
+Space Complexity: O(n*n) +O(n)
 ```
 ## Solution 3 (Dynamic Programing) --> Tabulation
 ```Python
-def minimumPathSum(triangle, n):
-    
-    return solve(triangle,n)
-
-def solve(triangle,n):
-    
-    dp = [[-1 for _ in range(n)]for __ in range(n)]
-    
-    for j in range(n):
-        dp[n-1][j] = triangle[n-1][j]
+class Solution:
+    def maximumPath(self, N, Matrix):
         
-    for i in range(n-2,-1,-1):
-        for j in range(i,-1,-1):
-            
-            down = triangle[i][j] + dp[i+1][j]
-            diagonal = triangle[i][j] + dp[i+1][j+1]
-            
-            dp[i][j] = min(down,diagonal)    
+        dp = [[-1 for _ in range(N)]for __ in range(N)]
+        
+        return self.solve(N,Matrix,dp)
     
-    return dp[0][0]
-
+    def solve(self,n,mat,dp):
+        
+        for j in range(n):
+            dp[0][j] = mat[0][j]
+            
+        for i in range(1,n):
+            for j in range(n):
+                
+                up = mat[i][j] + dp[i-1][j];
+            
+                leftDiagonal= mat[i][j];
+                if(j-1>=0):
+                    leftDiagonal += dp[i-1][j-1];
+                else:
+                    leftDiagonal += -1e9;
+            
+                rightDiagonal = mat[i][j];
+                if(j+1<n):
+                    rightDiagonal += dp[i-1][j+1];
+                else:
+                    rightDiagonal += -1e9;
+            
+                dp[i][j] = max(up,leftDiagonal,rightDiagonal);
+        
+        
+        ans = -99999
+        for j in range(n):
+            if ans < dp[n-1][j]:
+                ans =dp[n-1][j]
+                
+        return ans
+        
 ```
 ```bash
-Time Complexity : O(n*m)
-Space Complexity : O(n*m)
+Time Complexity : O(n*n) + O(n)
+Space Complexity : O(n*n)
 
-## LeetCode
+## Geeksforgeeks
 [Maximum Path Sum in Matrix](https://practice.geeksforgeeks.org/problems/path-in-matrix3805/1)
