@@ -40,5 +40,42 @@ Time Complexity : O(n^2)
 Space Complexity : O(n)
 ```
 
+## Solution 2 (optimization)
+
+```Python
+
+from sys import stdin, setrecursionlimit
+import sys
+setrecursionlimit(10**7)
+mod = 1000000007
+
+class Solution:
+    #Function to count number of ways to reach the nth stair.
+    def countWays(self,n):
+        
+        dp = [-1]*(n+1)
+        
+        return self.solve(n,dp)
+        
+    def solve(self,n,dp):
+        if (n<0):
+            return 0
+        if (n==0):
+            return 1
+            
+        if dp[n] != -1:
+            return dp[n]
+            
+        dp[n] = (self.solve(n-1,dp) +self.solve(n-2,dp) )%mod
+        
+        return dp[n]
+```
+### Complexity
+ 
+```bash
+Time Complexity : O(n)
+Space Complexity : O(n)
+```
+
 ## Geeksforgeeks
 [Count ways to reach the n'th stair](https://practice.geeksforgeeks.org/problems/count-ways-to-reach-the-nth-stair-1587115620/1)
