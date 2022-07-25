@@ -58,5 +58,36 @@ class Solution:
 Time Complexity : O(n)
 Space Complexity : O(n-1) + O(n-1)
 ```
+## Solution 4
+```python
+
+class Solution:
+    
+    def solve(self,arr,n):
+        prev1 = arr[0]
+        prev2 = 0
+        
+        for i in range(1,n-1):
+            include = prev2 + arr[i]
+            exclude = prev1 + 0
+            ans = max(include,exclude)
+            prev2 = prev1
+            prev1 = ans
+        return prev1
+    
+    def rob(self, valueInHouse: List[int]) -> int:
+        n=len(valueInHouse)
+        if n==1:
+            return valueInHouse[0]
+        
+            
+        return max(self.solve(valueInHouse[0:n-1],n),self.solve(valueInHouse[1:n],n))
+        
+```
+
+```bash
+Time Complexity : O(n)
+Space Complexity : O(1)
+```
 ## LeetCode
 [House Robber II](https://leetcode.com/problems/house-robber-ii/)
