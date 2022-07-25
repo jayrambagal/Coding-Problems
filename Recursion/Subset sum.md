@@ -70,8 +70,8 @@ class Solution:
 ```
 ### Complexity
 ```bash
-Time Complexity = O(n)
-Space Complexity = O(n)+O(k) 
+Time Complexity = O(n*summ)
+Space Complexity = O(n*summ)+O(n) 
 ```
         
 [Subset sum of target](https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1)
