@@ -35,24 +35,34 @@ class Solution:
 ### Complexity
  
 ```bash
-Time Complexity : O(2^n * 2^m )
+Time Complexity : O(3^n*m )
 Space Complexity : O(n)
 ```
-## Solution 2 (Dynamic Programing)-->memoization
 
+## Solution 2  --> Tabulation
 ```Python
-
-     
-```
-### Complexity
+ class Solution:
+    def longestCommonSubstr(self, S1, S2, n, m):
+        dp=[[-1 for _ in range(m+1)]for __ in range(n+1)]
+        return self.solve(S1,S2,n,m,dp)
+        
+    def solve(self,str1, str2, N, M,dp):
  
-```bash
-Time Complexity: O(n*m)
-Space Complexity: O(n*m)
-```
-## Solution 3 (Dynamic Programing) --> Tabulation
-```Python
- 
+    
+        mx = 0
+        for i in range(N + 1):
+            for j in range(M + 1):
+                
+                if (i == 0 or j == 0):
+                    dp[i][j] = 0
+                    
+                elif (str1[i-1] == str2[j-1]):
+                    dp[i][j] = dp[i-1][j-1] + 1
+                    mx = max(mx, dp[i][j])
+                    
+                else:
+                    dp[i][j] = 0
+        return mx
 
 ```
 ```bash
