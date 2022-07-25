@@ -40,3 +40,38 @@ class Solution:
 ```bash
 Time Complexity = O(2^n)
 Space Complexity = O(n) --> Auxilary space recursion
+```
+### Solution 
+
+```python
+### Solution 
+
+```python
+class Solution:
+    def isSubsetSum (self, N, arr, summ):
+        return self.solve(N-1,arr,summ)
+        
+    def solve(self,n,arr,summ):
+        
+        if summ==0:
+            return True
+            
+        if n==0:
+            return arr[n] == summ
+            
+        exclude = self.solve(n-1,arr,summ)
+        include = False
+        if summ>=arr[n]:
+            include = self.solve(n-1,arr,summ-arr[n])
+            
+        return include or exclude
+        
+```
+```
+### Complexity
+```bash
+Time Complexity = O(n)
+Space Complexity = O(n)+O(k) 
+```
+        
+```
