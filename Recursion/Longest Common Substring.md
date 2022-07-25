@@ -35,30 +35,10 @@ class Solution:
 ### Complexity
  
 ```bash
-Time Complexity : O(2^n * 2^m )
+Time Complexity : O(3^n*m )
 Space Complexity : O(n)
 ```
-## Solution 2 (Dynamic Programing)-->memoization
 
-```Python
-
-     
-```
-### Complexity
- 
-```bash
-Time Complexity: O(n*m)
-Space Complexity: O(n*m)
-```
-## Solution 3 (Dynamic Programing) --> Tabulation
-```Python
- 
-
-```
-```bash
-Time Complexity : O(n*m)
-Space Complexity : O(n*m)
-```
 
 ## GeeksforGeeks
 [Longest Common Substring](https://practice.geeksforgeeks.org/problems/longest-common-substring1452/1?page=1&difficulty[]=1&category[]=Dynamic%20Programming&category[]=Recursion&sortBy=submissions)
