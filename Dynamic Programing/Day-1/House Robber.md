@@ -56,7 +56,7 @@ class Solution:
 ```
 ```bash
 Time Complexity : O(n)
-Space Complexity : O(n)
+Space Complexity : O(n-1) + O(n-1)
 ```
 ## LeetCode
 [House Robber II](https://leetcode.com/problems/house-robber-ii/)
