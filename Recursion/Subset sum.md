@@ -74,4 +74,4 @@ Time Complexity = O(n)
 Space Complexity = O(n)+O(k) 
 ```
         
-```
+[Subset sum of target](https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1)
