@@ -76,6 +76,4 @@ Space Complexity = O(n*summ)+O(n)
         
 [Subset sum of target](https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1)
 ```
-## Geeksforgeeks
 
-[Maximum Path in Matrix](https://practice.geeksforgeeks.org/problems/path-in-matrix3805/1)
