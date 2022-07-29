@@ -36,10 +36,11 @@ class Solution:
         for i in range(len(val)):
             temp += val[i]
             self.solve(digits,mapping,ans,temp,index+1)
-            temp = temp[:-1]
+            temp = temp[:-1]        # backtracing
             
         
         return ans
+        
     
 ```
 ### Complexity
