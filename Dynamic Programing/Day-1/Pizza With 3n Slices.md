@@ -60,4 +60,4 @@ Time Complexity : O(n)
 Space Complexity : O(1)
 ```
 ## LeetCode
-[House Robber II](https://leetcode.com/problems/house-robber-ii/)
+[Pizza With 3n Slices](https://leetcode.com/problems/pizza-with-3n-slices/)
