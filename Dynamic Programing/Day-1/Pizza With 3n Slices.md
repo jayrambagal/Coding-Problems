@@ -123,7 +123,7 @@ class Solution:
 
 ```bash
 Time Complexity : O(n^2)
-Space Complexity : O(n)+O(n)
+Space Complexity : O(n)
 ```
 ## LeetCode
 [Pizza With 3n Slices](https://leetcode.com/problems/pizza-with-3n-slices/)
