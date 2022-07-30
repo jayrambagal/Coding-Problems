@@ -83,6 +83,43 @@ class Solution:
 
         
 ```
+## Solution 3 (Tabulation)
+```python
+
+class Solution:
+    def maxSizeSlices(self, slices: List[int]) -> int:
+        
+        k = len(slices)
+        n = int(k/3)
+        
+        dp1 = [[-1 for _ in range(k+2)]for __ in range(k+2)]
+        dp2 = [[-1 for _ in range(k+2)]for __ in range(k+2)]
+        
+        for i in range(k-2,-1,-1):
+            for j in range(1,n+2):
+                
+                include = slices[i] + dp1[i+2][j-1]
+                exclude = 0 + dp1[i+1][j]
+                
+                dp1[i][j] =max(include,exclude)
+        
+        case1 = dp1[0][n]
+                
+        for i in range(k-1,0,-1):
+            for j in range(1,n+2):
+                
+                include = slices[i] + dp2[i+2][j-1]
+                exclude = 0 + dp2[i+1][j]
+                
+                dp2[i][j] = max(include,exclude)  
+        
+        case2 = dp2[1][n]
+        
+        ans =  max(case1,case2) + 1
+        
+        return ans
+        
+```
 
 ```bash
 Time Complexity : O(n^2)
