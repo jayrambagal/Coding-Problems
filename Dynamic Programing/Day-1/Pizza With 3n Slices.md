@@ -52,12 +52,41 @@ Space Complexity : O(n) --> Recursion Stack space
 ## Solution 2 (memoiation)
 ```python
 
+class Solution:
+    def maxSizeSlices(self, slices: List[int]) -> int:
+        
+        k = len(slices)
+        
+        dp1 = [[-1 for _ in range(k)]for __ in range(k)]     
+        dp2 = [[-1 for _ in range(k)]for __ in range(k)]
+        
+        case1 = self.solve(0,k-2,slices,int(k/3),dp1)
+        case2 = self.solve(1,k-1,slices,int(k/3),dp2)
+        
+        return max(case1,case2)
+    
+    def solve(self,index,n,slices,step,dp):
+        
+        if step==0 or index>n:
+            return 0
+        
+        if dp[index][step] != -1:
+            return dp[index][step]
+        
+        include = slices[index] + self.solve(index+2,n,slices,step-1,dp)
+        
+        exclude = 0 + self.solve(index+1,n,slices,step,dp)
+        
+        dp[index][step] = max(include,exclude)
+        
+        return dp[index][step]
+
         
 ```
 
 ```bash
-Time Complexity : O(n)
-Space Complexity : O(1)
+Time Complexity : O(n^2)
+Space Complexity : O(n)+O(n)
 ```
 ## LeetCode
 [Pizza With 3n Slices](https://leetcode.com/problems/pizza-with-3n-slices/)
