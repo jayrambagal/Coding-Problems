@@ -1,39 +1,54 @@
-## Subset sum equal to Target
+## partition equal subset
 
-Given an array of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum. 
-
+Given an array arr[] of size N, check if it can be partitioned into two parts such that the sum of elements in both parts is the same.
 #### Example
-```bash
-Input:
-N = 6
-arr[] = {3, 34, 4, 12, 5, 2}
-sum = 9
-Output: 1 
-Explanation: Here there exists a subset with
-sum = 9, 4+3+2 = 9.
+```baInput: N = 3
+arr = {1, 3, 5}
+Output: NO
+Explanation: This array can never be 
+partitioned into two such parts.
+
+
+Input: N = 4
+arr = {1, 5, 11, 5}
+Output: YES
+Explanation: 
+The two parts are {1, 5, 5} and {11}.
+
+
 
 ```
 ### Solution 
 
 ```python
 class Solution:
-    def isSubsetSum (self, N, arr, summ):
-        return self.solve(N-1,arr,summ)
+    def equalPartition(self, N, arr):
+        total = 0
+        for i in range(N):
+            total +=arr[i]
+            
+        if total%2 != 0:
+            return 0
+            
+        target = total//2
         
-    def solve(self,n,arr,summ):
+        return self.solve(0,arr,N,target)
         
-        if summ==0:
-            return True
+    def solve(self,index,arr,n,target):
+        
+        if index>=n:
+            return 0
             
-        if n==0:
-            return arr[n] == summ
+        if target <0:
+            return 0
             
-        exclude = self.solve(n-1,arr,summ)
-        include = False
-        if summ>=arr[n]:
-            include = self.solve(n-1,arr,summ-arr[n])
+        if target == 0:
+            return 1
             
-        return include or exclude
+        inc = self.solve(index+1,arr,n,target-arr[index])
+        exc = self.solve(index+1,arr,n,target)
+        
+        return inc or exc
         
 ```
 ### Complexity
@@ -48,23 +63,40 @@ Space Complexity = O(n) --> Auxilary space recursion
 
 ```python
 class Solution:
-    def isSubsetSum (self, N, arr, summ):
-        return self.solve(N-1,arr,summ)
+    def equalPartition(self, N, arr):
+        total = 0
+        for i in range(N):
+            total +=arr[i]
+            
+        if total%2 != 0:
+            return 0
+            
+        target = total//2
         
-    def solve(self,n,arr,summ):
+        dp = [[-1 for _ in range(target+1)]for __ in range(N)]
         
-        if summ==0:
-            return True
+        return self.solve(0,arr,N,target,dp)
+        
+    def solve(self,index,arr,n,target,dp):
+        
+        if index>=n:
+            return 0
             
-        if n==0:
-            return arr[n] == summ
+        if target <0:
+            return 0
             
-        exclude = self.solve(n-1,arr,summ)
-        include = False
-        if summ>=arr[n]:
-            include = self.solve(n-1,arr,summ-arr[n])
+        if target == 0:
+            return 1
             
-        return include or exclude
+        if dp[index][target] != -1:
+            return dp[index][target]
+            
+        inc = self.solve(index+1,arr,n,target-arr[index],dp)
+        exc = self.solve(index+1,arr,n,target,dp)
+        
+        dp[index][target] = inc or exc
+        
+        return dp[index][target]
         
 ```
 ```
@@ -74,6 +106,6 @@ Time Complexity = O(n*summ)
 Space Complexity = O(n*summ)+O(n) 
 ```
         
-[Subset sum of target](https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1)
+[Partition Subset Sum](https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1)
 ```
 
