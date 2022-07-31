@@ -99,13 +99,44 @@ class Solution:
         return dp[index][target]
         
 ```
-```
 ### Complexity
 ```bash
 Time Complexity = O(n*summ)
 Space Complexity = O(n*summ)+O(n) 
 ```
+### Solution
+```python
+class Solution:
+    def equalPartition(self, n, arr):
         
+        total = 0
+        
+        for i in range(n):
+            total += arr[i]
+ 
+        if total % 2 != 0:
+            return False
+ 
+        dp = [[True for i in range(n + 1)]
+                for j in range(total // 2 + 1)]
+ 
+        for i in range(0, n + 1):
+            dp[0][i] = True
+            
+        for i in range(1, total // 2 + 1):
+            dp[i][0] = False
+ 
+        for i in range(1, total // 2 + 1):
+            for j in range(1, n + 1):
+                
+                dp[i][j] = dp[i][j - 1]
+ 
+                if i >= arr[j - 1]:
+                    dp[i][j] = (dp[i][j] or dp[i - arr[j - 1]][j - 1])
+ 
+        return dp[total // 2][n]
+        
+ ```
 [Partition Subset Sum](https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1)
-```
+
 
