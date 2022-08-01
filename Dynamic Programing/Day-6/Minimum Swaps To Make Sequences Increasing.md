@@ -63,7 +63,7 @@ class Solution:
 Time Complexity = O(2^n)
 Space Complexity = O(n) --> Auxilary space recursion
 ```
-### Solution 
+### Solution (Memoiation)
 
 ```python
 ### Solution 
@@ -113,9 +113,37 @@ class Solution:
 Time Complexity = O(n)
 Space Complexity = O(n)+O(n) 
 ```
-### Solution
+### Solution (Tabulation)
 ```python
-
+class Solution:
+    def minSwap(self, nums1: List[int], nums2: List[int]) -> int:
+        nums1.insert(0,-1)
+        nums2.insert(0,-1)
+        n = len(nums1)
+        dp = [[0 for _ in range(2)]for __ in range(n+1)]
+        
+        for index in range(n-1,0,-1):
+            for swap in range(1,-1,-1):
+                
+                prev1 = nums1[index-1]
+                prev2 = nums2[index-1]
+                ans = 99999999
+                
+                if swap == 1:
+                    temp = prev1
+                    prev1 = prev2
+                    prev2 = temp
+            
+                if nums1[index]> prev1 and nums2[index]>prev2:
+                    ans = dp[index+1][0]
+            
+                if nums1[index] > prev2 and nums2[index] > prev1:
+                    ans = min(ans,1 + dp[index+1][1])
+            
+                dp[index][swap] = ans
+        
+        return dp[index][1]                
+                
         
  ```
 [ Minimum Swaps To Make Sequences Increasing](https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing/)
