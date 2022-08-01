@@ -111,7 +111,7 @@ class Solution:
 ### Complexity
 ```bash
 Time Complexity = O(n)
-Space Complexity = O(n)+O(n) 
+Space Complexity = O(n)+O(n)
 ```
 ### Solution (Tabulation)
 ```python
@@ -143,8 +143,11 @@ class Solution:
                 dp[index][swap] = ans
         
         return dp[index][1]                
-                
-        
- ```
+```                
+### Complexity
+```bash
+Time Complexity = O(n)
+Space Complexity = O(n)
+```       
 [ Minimum Swaps To Make Sequences Increasing](https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing/)
 
