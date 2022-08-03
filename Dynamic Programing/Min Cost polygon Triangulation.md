@@ -78,5 +78,32 @@ Time Complexity : O(n)
 Space Complexity : O(n) + O(n)
 ```
 
+## Solution 2  --> Tabulation
+```Python
+class Solution:
+    def minScoreTriangulation(self, val: List[int]) -> int:
+        
+        n = len(val)
+        
+        dp = [[0 for _ in range(n+1)]for __ in range(n+1)]
+        
+        for i in range(n-1,-1,-1):
+            for j in range(i+2,n):
+                
+                ans = 9999999999
+                
+                for k in range(i+1,j):
+            
+                    ans = min(ans,val[i]*val[j]*val[k] + dp[i][k] +dp[k][j])
+                              
+                    dp[i][j] = ans
+            
+        return dp[i][n-1]
+
+```
+```bash
+Time Complexity : O(n)
+Space Complexity : O(n) + O(n)
+```
 ## Leetcode
 [Minimum Score Triangulation of Polygon](https://leetcode.com/problems/minimum-score-triangulation-of-polygon/)
