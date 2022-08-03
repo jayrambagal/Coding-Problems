@@ -42,9 +42,24 @@ class Solution:
 	            res = min(res,ans+1)
 	        
 	    return res
+```
+## Recursion
+```python
+def solve(self, n, coins, amt):
+    if amt == 0:
+        return 0
+    
+    if n == 0 and amt != 0:
+        return 99999
+    
+    if coins[n-1] > amt:
+        return self.solve(n-1, coins, amt)
+    
+    return min(self.solve(n-1, coins, amt), self.solve(n, coins, amt-coins[n-1]) + 1)
+```
 	    
     
-```
+
 ```bash
 Time Complexity : O(2^n)
 Space Complexity : O(1)
