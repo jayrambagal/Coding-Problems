@@ -27,15 +27,23 @@ Explanation: there are four ways to make up the amount:
 ```Python
 
 class Solution:
+
     def change(self, amt: int, coins: List[int]) -> int:
+    
         def solve(amt, i):
+	
             if i == 0:
                 return int(not amt % coins[0])
+		
             dont = solve(amt, i-1)
+	    
             take = 0
+	    
             if amt - coins[i] >= 0:
                 take = solve(amt-coins[i], i)
+		
             return take+dont
+	    
         return solve(amt, len(coins)-1)
         
 ```
@@ -64,12 +72,43 @@ class Solution:
             return dp[i][amt]
         return solve(amt, len(coins)-1)
 ```
+
+```bash
+Time Complexity : O(n)
+Space Complexity : O(n)+O(n)
+```
+
+## Solution (Tabulation)
+```python
+
+class Solution:
+    def change(self, amt: int, coins: List[int]) -> int:
+        
+        n = len(coins)
+        dp = [[0]*(amt+1) for _ in range(n)]
+        
+        for i in range(amt+1):
+            dp[0][i] = int(not i % coins[0])
+            
+        for i in range(1, n):
+            for j in range(amt+1):
+                
+                dont = dp[i-1][j]
+                take = 0
+                if j - coins[i] >= 0:
+                    take = dp[i][j-coins[i]]
+                    
+                dp[i][j] = take+dont
+                
+        return dp[-1][amt]
+
+```
 	    
     
 
 ```bash
 Time Complexity : O(n)
-Space Complexity : O(n)+O(n)
+Space Complexity : O(n)
 ```
 ## Leetcode
 [coin changes II](https://leetcode.com/problems/coin-change-2/submissions/)
