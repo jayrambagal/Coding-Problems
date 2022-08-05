@@ -35,7 +35,7 @@ def solve(n,w,profit,weight):
 ### Complexity
 ```bash
 Time Complexity = O(2^n)
-Space Complexity = O(n) --> Auxilary space recursion
+Space Complexity = O(w) --> Auxilary space recursion
 ```
 ### Solution 
 
@@ -65,7 +65,26 @@ def solve(n,w,profit,weight,dp):
 ### Complexity
 ```bash
 Time Complexity = O(n)
-Space Complexity = O(n)+O(n) 
+Space Complexity = O(n)+O(w) 
+```
+### Solution 
+
+```python
+def unboundedKnapsack(n, w, profit, weight):
+    dp = [0]*(w+1)
+    
+    for i in range(w+1):
+        for j in range(n):
+            
+            if (weight[j] <= i):
+                dp[i] = max(dp[i], profit[j] + dp[i - weight[j]])
+
+    return dp[w]
+```
+### Complexity
+```bash
+Time Complexity = O(n)
+Space Complexity = O(1)
 ```
 
 ![IMG_20220805_145315 1](https://user-images.githubusercontent.com/94613732/183048061-514448f4-3648-4006-ac34-a830a678c239.jpg)
