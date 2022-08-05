@@ -50,7 +50,7 @@ Output: 0
 ### Complexity
  
 ```bash
-Time Complexity : O(2^n)
+Time Complexity : Expo
 Space Complexity : O(n)
 ```
 ## Solution 2 (Dynamic Programing)-->memoization
@@ -86,8 +86,8 @@ class Solution:
 ### Complexity
  
 ```bash
-Time Complexity : O(n)
-Space Complexity : O(n)+O(n)
+Time Complexity : O(n*weight)
+Space Complexity : O(n*weight)+O(n)
 ```
 ## Solution 3 (Dynamic Programing) --> Tabulation
 ```Python
@@ -117,16 +117,38 @@ class Solution:
 
 ```
 ```bash
-Time Complexity : O(n)
-Space Complexity : O(n)
+Time Complexity : O(n*weight)
+Space Complexity : O(n*weight)
 ```
 ## Solution 3 (Dynamic Programing) --> Space Optimization
 ```Python
-
+class Solution:
+    
+    def knapSack(self,weight, wt, val, n):
+        
+        prev = [0]*(weight+1)
+        
+        for i in range(wt[0],weight+1):
+            prev[i] = val[0]
+    
+    
+        for i in range(1,n):
+    
+            for j in range(weight,-1,-1):
+            
+                notTaken = 0 + prev[j]
+            
+                taken = -sys.maxsize
+                if(wt[i] <= j):
+                    taken = val[i] + prev[j-wt[i]]
+                
+                prev[j] = max(notTaken, taken)
+      
+        return prev[weight]
 
 ```
 ```bash
-Time Complexity : O(n)
+Time Complexity : O(n*weight)
 Space Complexity : O(1)
 ```
 ## GeeksforGeeks
