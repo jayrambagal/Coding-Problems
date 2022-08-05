@@ -149,7 +149,7 @@ class Solution:
 ```
 ```bash
 Time Complexity : O(n*weight)
-Space Complexity : O(1)
+Space Complexity : O(weight)
 ```
 ## GeeksforGeeks
 [Knapsack Problem](https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)
