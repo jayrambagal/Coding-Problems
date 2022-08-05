@@ -40,13 +40,34 @@ Space Complexity = O(n) --> Auxilary space recursion
 ### Solution 
 
 ```python
+import sys
 
+def unboundedKnapsack(n, w, profit, weight):
+    dp = [[-1 for i in range(w+1)]for j in range(n+1)]
+    return solve(n-1,w,profit,weight,dp)
+
+def solve(n,w,profit,weight,dp):
+    
+    if n==0:
+        ans = int(w/weight[0])*profit[0]
+        return ans
+    if dp[n][w] != -1:
+        return dp[n][w]
+    exclude = 0 + solve(n-1,w,profit,weight,dp)
+    include = -sys.maxsize
+    if weight[n]<=w:
+        include =profit[n] + solve(n,w-weight[n],profit,weight,dp)
+    
+    dp[n][w] = max(include,exclude)
+    
+    return dp[n][w]
 ```
 ### Complexity
 ```bash
 Time Complexity = O(n)
 Space Complexity = O(n)+O(n) 
-```![IMG_20220805_145315 1](https://user-images.githubusercontent.com/94613732/183047915-2c01656c-9acd-4ea6-af3c-01ca7c5b3d8a.jpg)
+```
+
 ![IMG_20220805_145315 1](https://user-images.githubusercontent.com/94613732/183048061-514448f4-3648-4006-ac34-a830a678c239.jpg)
 
 
