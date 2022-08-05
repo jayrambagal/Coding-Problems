@@ -81,7 +81,7 @@ class Solution:
         
         dp[n][weight] = max(include,exclude)
         
-        return dp[n][weight]d
+        return dp[n][weight]
 ```
 ### Complexity
  
@@ -91,6 +91,29 @@ Space Complexity : O(n)+O(n)
 ```
 ## Solution 3 (Dynamic Programing) --> Tabulation
 ```Python
+class Solution:
+    
+    def knapSack(self,weight, wt, val, n):
+        
+        dp = [[0 for _ in range(weight+1)]for __ in range(n+1)]
+        
+        for i in range(wt[0],weight+1):
+            dp[0][i] = val[0]
+    
+    
+        for i in range(1,n):
+    
+            for j in range(0,weight+1):
+            
+                notTaken = 0 + dp[i-1][j];
+            
+                taken = -sys.maxsize
+                if(wt[i] <= j):
+                    taken = val[i] + dp[i-1][j - wt[i]]
+                
+                dp[i][j] = max(notTaken, taken)
+      
+        return dp[n-1][weight]
 
 ```
 ```bash
