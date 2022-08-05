@@ -83,7 +83,7 @@ def unboundedKnapsack(n, w, profit, weight):
 ```
 ### Complexity
 ```bash
-Time Complexity = O(n)
+Time Complexity = O(n*w)
 Space Complexity = O(1)
 ```
 
