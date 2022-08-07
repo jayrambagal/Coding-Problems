@@ -49,9 +49,10 @@ Space Complexity = O(n) --> Auxilary space recursion
 ```python
 class Solution:
     def isSubsetSum (self, N, arr, summ):
-        return self.solve(N-1,arr,summ)
+        dp =[[-1 for _ in range(summ+1)]for __ in range(N+1)]
+        return self.solve(N-1,arr,summ,dp)
         
-    def solve(self,n,arr,summ):
+    def solve(self,n,arr,summ,dp):
         
         if summ==0:
             return True
@@ -59,12 +60,17 @@ class Solution:
         if n==0:
             return arr[n] == summ
             
-        exclude = self.solve(n-1,arr,summ)
+        if dp[n][summ] != -1:
+            return dp[n][summ]
+            
+        exclude = self.solve(n-1,arr,summ,dp)
         include = False
         if summ>=arr[n]:
-            include = self.solve(n-1,arr,summ-arr[n])
+            include = self.solve(n-1,arr,summ-arr[n],dp)
             
-        return include or exclude
+        dp[n][summ] = include or exclude
+        
+        return dp[n][summ] 
         
 ```
 ```
