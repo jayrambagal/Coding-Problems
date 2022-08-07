@@ -39,6 +39,28 @@ Time Complexity : O(2^n)
 Space Complexity : O(n)
 ```
 
+## Solution 
+
+```python
+
+def subsequences(str):
+    n = len(str)
+    ans = []
+    temp = ""
+    subsequencesHelper(str, 0, temp, ans)
+    return ans
+
+def subsequencesHelper(s, index, temp, ans):
+
+    if(index == len(s)):
+        if(len(temp) != 0):
+            ans.append(temp)
+        return
+    subsequencesHelper(s, index + 1, temp, ans)
+    temp += s[index]
+    subsequencesHelper(s, index + 1, temp, ans)
+```
+
 
 
 
