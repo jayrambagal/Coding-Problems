@@ -71,9 +71,7 @@ class Solution:
 ```
 ### Complexity
 ```bash
-Time Complexity = O(n)
-Space Complexity = O(n)+O(n) 
+
 ```
 
-[Knapsack Problem](https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)
 
