@@ -41,14 +41,16 @@ class Solution:
                 
         return res
 ```
+
+![IMG_20220820_110334 1](https://user-images.githubusercontent.com/94613732/185730623-09441855-1b3a-48cb-a7e1-3c9c70f07848.jpg)
+![IMG_20220820_110320 1](https://user-images.githubusercontent.com/94613732/185730657-7474c4aa-2a29-4e3d-aeee-c9b347623f2c.jpg)
 ### Complexity
  
 ```bash
 Time Complexity: O()
 Space Complexity: O()
 ```
-![IMG_20220820_110334 1](https://user-images.githubusercontent.com/94613732/185730623-09441855-1b3a-48cb-a7e1-3c9c70f07848.jpg)
-![IMG_20220820_110320 1](https://user-images.githubusercontent.com/94613732/185730657-7474c4aa-2a29-4e3d-aeee-c9b347623f2c.jpg)
+
 
 
 
