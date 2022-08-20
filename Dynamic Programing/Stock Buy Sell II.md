@@ -88,7 +88,7 @@ class Solution:
 Time Complexity = O(n)
 Space Complexity = O(n)+O(n) 
 ```
-## Solution Tabulation
+## Solution (Tabulation)
 
 ```python
 class Solution:
@@ -109,13 +109,14 @@ class Solution:
           
         return dp[0][1]
         
-    ```
-    
-    ```
+```
+
 ### Complexity
+
 ```bash
 Time Complexity = O(n)
 Space Complexity = O(n) 
+
 ```
 
 [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
