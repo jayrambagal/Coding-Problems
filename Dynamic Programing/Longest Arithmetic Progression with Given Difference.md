@@ -35,16 +35,7 @@ class Solution:
 Time Complexity: O(n)
 Space Complexity: O(n)
 ```
-## Solution 2 (DP)
 
-```Python
-
-```
- 
-```bash
-Time Complexity: O()
-Space Complexity: O()
-```
 
 
 
