@@ -11,7 +11,7 @@ progression is {1, 7, 13, 19}.
 
 ```
 
-## Solution 2 (Brut force)
+## Solution 1 (Brut force)
 
 ```Python
 class Solution:
@@ -49,6 +49,36 @@ class Solution:
 ```bash
 Time Complexity: O()
 Space Complexity: O()
+```
+## Solution 2 (Tabulation)
+
+```Python
+from collections import defaultdict
+
+class Solution:
+    
+    def lengthOfLongestAP(self, arr, n):
+        
+        if n<=2:
+            return n
+        res = 0
+        
+        memo = defaultdict(lambda: defaultdict(lambda: 2))
+        
+        for i in range(1, n):
+            for j in range(i):
+                
+                diff = arr[i]-arr[j]
+                if diff in memo[j]:
+                    memo[i][diff] = memo[j][diff]+1
+                res = max(res, memo[i][diff])
+                
+        return res
+```
+ 
+```bash
+Time Complexity: O(n^2)
+Space Complexity: O(n^2)
 ```
 
 
