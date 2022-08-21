@@ -50,4 +50,5 @@ Time Complexity : O(n)
 Space Complexity : O(n)
 ```
 ## GeeksforGeeks
-[Left View of Binary Tree]([https://practice.geeksforgeeks.org/problems/cutted-segments1642/1](https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1?page=1&difficulty[]=0&category[]=Tree&sortBy=submissions))
+
+[Left View of Binary Tree](https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1?page=1&difficulty[]=0&category[]=Tree&sortBy=submissions)
