@@ -73,6 +73,42 @@ root.right
 Time Complexity : Exponential
 Space Complexity : O(n)
 ```
+## Solution (Memoiation)
+```
+class Solution:
+    #Function to return the maximum sum of non-adjacent nodes.
+    def getMaxSum(self,root):
+        
+        return self.solve(root,dict())
+        
+    def solve(self,root,mapp):
+        
+        if root is None:
+            return 0
+        if root in mapp:
+            return mapp[root]
+            
+        with_node = root.data
+        
+        if root.left:
+            with_node += self.solve(root.left.left,mapp)
+            with_node += self.solve(root.left.right,mapp)
+            
+        if root.right:
+            with_node += self.solve(root.right.left,mapp)
+            with_node += self.solve(root.right.right,mapp)
+            
+        without_node = self.solve(root.left,mapp) + self.solve(root.right,mapp)
+            
+        ans = max(with_node,without_node)
+        mapp[root] = ans
+        
+        return mapp[root]
+```
+```bash
+Time Complexity : O(n)
+Space Complexity : O(n)
+```
 ## GeeksforGeeks
 
 [Maximum sum of Non-adjacent nodes](https://practice.geeksforgeeks.org/problems/maximum-sum-of-non-adjacent-nodes/1?page=1&difficulty[]=1&company[]=Google&category[]=Tree&sortBy=submissions)
