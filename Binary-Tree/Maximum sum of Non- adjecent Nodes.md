@@ -74,7 +74,7 @@ Time Complexity : Exponential
 Space Complexity : O(n)
 ```
 ## Solution (Memoiation)
-```
+```python
 class Solution:
     #Function to return the maximum sum of non-adjacent nodes.
     def getMaxSum(self,root):
