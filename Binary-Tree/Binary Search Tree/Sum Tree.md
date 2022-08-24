@@ -26,6 +26,17 @@ in left subtree is 40 and sum of elements
 in right subtree is 30. Root element = 10
 which is not equal to 30+40.
 
+Input:
+    3
+  /   \    
+ 1     2
+
+Output: 1
+Explanation:
+The sum of left subtree and right subtree is
+1 + 2 = 3, which is the value of the root node.
+Therefore,the given binary tree is a sum tree.
+
 ```
 
 
