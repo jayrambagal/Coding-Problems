@@ -3,11 +3,12 @@ Given a string S containing only digits, Your task is to complete the function g
 Note: Order doesn't matter.
 
 For string 11211 the IP address possible are 
+```
 1.1.2.11
 1.1.21.1
 1.12.1.1
 11.2.1.1
-
+```
 ## Example 
 ```bash
 Input:
