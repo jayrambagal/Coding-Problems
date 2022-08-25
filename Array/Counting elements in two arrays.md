@@ -39,6 +39,41 @@ Time Complexity :O(n^2)
 Space Complexity : O(n)
 
 ```
+## Solution (binary search)
+```python
+class Solution:
+    def countEleLessThanOrEqual(self,arr1,n1,arr2,n2):
+       
+        arr2.sort()
+        ans =[]
+       
+        for i in range(n1):
+           
+            index = self.solve(arr2,n2,arr1[i])
+            
+            ans.append(index+1)
+            
+        return ans
+           
+    def solve(self,arr,n,target):
+        l = 0
+        h = n-1
+        while l<=h:
+            mid = int((l+h)//2)
+            
+            if arr2[mid] <= target:
+                l = mid+1
+            else:
+                h = mid-1
+                
+        return h
+```
+#### Complexity
+```bash
+Time Complexity :O(n * logn) 
+Space Complexity : O(n)
+
+```
 
 ## Geeksforgeeks
 [Counting elements in two arrays](https://practice.geeksforgeeks.org/problems/counting-elements-in-two-arrays/1)
