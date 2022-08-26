@@ -19,7 +19,6 @@ Output: 2
 
 ```python
 class Solution:
-class Solution:
     # Return the Kth smallest element in the given BST 
     def KthSmallestElement(self, root, K): 
         
@@ -30,21 +29,17 @@ class Solution:
         
         if root is None:
             return 
-        
-        ans.append(root.data)
+       
         self.solve(root.left,K,ans)
-        
+        ans.append(root.data)
         self.solve(root.right,K,ans)
-        
-        ans.sort()
         
         if len(ans)<K:
             return -1
-        return ans[K-1]
 ```
 #### Complexity
 ```bash
-Time Complexity : O(n) + O(nlogn)
+Time Complexity : O(n)
 Space Complexity : O(n)
 
 ```
