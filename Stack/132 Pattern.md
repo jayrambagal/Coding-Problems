@@ -40,6 +40,29 @@ class Solution:
 Time Complexity = O(n^3)
 Space Complexity = O(1) 
 ```
+### Solution 
+
+```python
+class Solution:
+    def find132pattern(self, nums: List[int]) -> bool:
+        
+        stack = []
+        minn = nums[0]
+        
+        for val in nums[1:]:
+            
+            while stack and val >= stack[-1][0]:
+                stack.pop()
+            
+            if stack and val > stack[-1][1]:
+                return True
+            
+            stack.append([val,minn])
+            minn = min(minn,val)
+            
+        return False
+        
+```
 
 ## Leetcode       
 [132 Pattern](https://leetcode.com/problems/132-pattern/)
