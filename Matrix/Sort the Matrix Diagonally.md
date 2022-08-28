@@ -33,6 +33,57 @@ class Solution:
         
         return mat
 ```
+## Solution
+```python
+class Solution:
+    def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
+        m = len(mat)
+        n = len(mat[0])
+        
+        # traversing the column from 0th to mth position and sort diagonaly
+        for i in range(m):
+          j = i
+          k=0
+          li =[]
+          
+          while(j<m and k<n):
+            li.append(mat[j][k])
+            j+=1
+            k+=1
+          li.sort();
+          
+          j=i
+          k=0
+          l=0
+          while(j<m and k<n):
+            mat[j][k]=li[l]
+            j+=1
+            k+=1
+            l+=1
+          
+        # traversing through 1th to nth row wise and sort diagonaly
+        for i in range(1,n):
+          j=0
+          k=i
+          li =[]
+          
+          while(j<m and k<n):
+            li.append(mat[j][k])
+            j+=1
+            k+=1
+          li.sort();
+          
+          j=0
+          k=i
+          l=0
+          while(j<m and k<n):
+            mat[j][k]=li[l]
+            j+=1
+            k+=1
+            l+=1
+            
+        return mat
+```
 
 ### Leetcode
 [Sort the Matrix Diagonally](https://leetcode.com/problems/sort-the-matrix-diagonally/)
