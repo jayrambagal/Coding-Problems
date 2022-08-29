@@ -54,6 +54,37 @@ Time Complexity : O(n) + O(n)
 Space Complexity : O(n) + O(n)
 ```
 
+## Solution (Using Stack)
+
+```Python
+class Solution:
+    def isPairPresent(self,root, target): 
+        
+        pair = set()
+        stack = [root]
+        
+        if root is None:return 
+    
+        while stack:
+            node = stack.pop()
+            
+            if target - node.data in pair:
+                return 1
+                
+            pair.add(node.data)
+            
+            if node.left:
+                stack.append(node.left)
+                
+            if node.right:
+                stack.append(node.right)
+                
+        return 0
+```
+```bash
+Time Complexity : O(n) + O(n) 
+```
+
 ## GeeksforGeeks
 
 [Find a pair with given target in BST](https://practice.geeksforgeeks.org/problems/find-a-pair-with-given-target-in-bst/1?page=1&difficulty[]=1&difficulty[]=2&status[]=unsolved&company[]=Amazon&company[]=Microsoft&company[]=Adobe&company[]=Facebook&category[]=Binary%20Search%20Tree&sortBy=submissions)
