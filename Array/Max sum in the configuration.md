@@ -46,5 +46,37 @@ Time Complexity :O(n^2)
 Space Complexity : O(1)
 ```
 
+
+## Solution 
+
+```python
+def max_sum(a,n):
+    
+    total_sum = 0
+    total_mul = 0
+    
+    for i in range(n):
+        total_sum +=a[i]
+        total_mul += arr[i]*i
+        
+    ans = total_mul
+    
+    mul = total_mul
+    
+    for i in range(n):
+        si = mul + total_sum - n*a[n-i-1]
+        
+        ans = max(ans,si)
+        
+        mul = si
+    
+    return ans
+ ```
+#### Complexity
+```bash
+Time Complexity :O(n) + (n)
+Space Complexity : O(1)
+```
+
 ## Geeksforgeeks
 [Max sum in the configuration](https://practice.geeksforgeeks.org/problems/max-sum-in-the-configuration/1?page=1&difficulty[]=1&status[]=unsolved&category[]=Arrays&sortBy=submissions)
