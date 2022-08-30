@@ -50,6 +50,26 @@ Time Complexity :O(n^2)
 Space Complexity : O()
 
 ```
+## solution (stack)
+```python
+class Solution:
+    
+    #Function to calculate the span of stockâ€™s price for all n days.
+    def calculateSpan(self,a,n):
+        
+        ans = [0]*n
+        stack = []
+        for i in range(n-1, -1, -1):
+            ans[i] = i+1
+            while stack and a[stack[-1]] < a[i]:
+                idx = stack[-1]
+                ans[idx] = idx-i
+                stack.pop()
+            stack.append(i)
+            
+        return ans
+```
+
 
 ## Geeksforgeeks
 [Stock span problem](https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1?page=1&difficulty[]=1&status[]=unsolved&category[]=Arrays&sortBy=submissions)
