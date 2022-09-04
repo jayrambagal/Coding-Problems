@@ -40,6 +40,44 @@ class Solution:
 Time Complexity :O(n^2)
 Space Complexity : O(n)
 ``` 
+## Solution
+```python
+class Solution:
+    def countDistinct(self, A, N, K):
+        freq = {}
+        ans = []
+        
+        for i in range(K-1):
+            if A[i] in freq:
+                freq[A[i]]+=1
+            else:
+                freq[A[i]] = 1
+        i = K-1   
+        j = 0
+        while i<N:
+            if A[i] in freq:
+                freq[A[i]]+=1
+                
+            else:
+                freq[A[i]] = 1
+                
+            ans.append(len(freq))
+            
+            if freq[A[j]] == 1:
+                del freq[A[j]]
+            else:
+                freq[A[j]] -=1
+                
+            i+=1
+            j+=1
+            
+        return ans
+ ```
+#### Complexity
+```bash
+Time Complexity :O(n)
+Space Complexity : O(n)
+```
 
 ## Geeksforgeeks
 [Count distinct elements in every window](https://practice.geeksforgeeks.org/problems/count-distinct-elements-in-every-window/1?page=1&status[]=unsolved&category[]=sliding-window&sortBy=submissions)
