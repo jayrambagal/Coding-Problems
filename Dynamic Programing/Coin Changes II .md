@@ -71,6 +71,32 @@ class Solution:
             dp[i][amt] = take+dont
             return dp[i][amt]
         return solve(amt, len(coins)-1)
+
+
+# another way
+
+class Solution:
+    def change(self, amt: int, coins: List[int]) -> int:
+        dp = {}
+        def solve(i,a):
+
+            if a == amt:
+                return 1
+            if a>amt:
+                return 0
+            if i==len(coins):
+                return 0
+
+            if (i,a) in dp:
+                return dp[(i,a)]
+
+            dp[(i,a)] = solve(i,a+coins[i]) + solve(i+1,a)
+
+            return dp[(i,a)]
+
+        return solve(0,0)
+
+        
 ```
 
 ```bash
