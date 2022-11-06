@@ -33,7 +33,7 @@ class Solution:
         def solve(amt, i):
 	
             if i == 0:
-                return int(not amt % coins[0])
+                return int(not amt % coins[0]) # if amt is not divisible by coins[0] then coins[0]th element can not made a target(amt).
 		
             dont = solve(amt, i-1)
 	    
