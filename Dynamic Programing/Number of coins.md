@@ -64,5 +64,33 @@ def solve(self, n, coins, amt):
 Time Complexity : O(2^n)
 Space Complexity : O(1)
 ```
+
+## Tabulation
+```python
+import sys
+class Solution:
+	def minCoins(self, coins, m, V):
+	    
+        table = [0 for i in range(V + 1)]
+ 
+        table[0] = 0
+ 
+        for i in range(1, V + 1):
+            table[i] = sys.maxsize
+ 
+        for i in range(1, V + 1):
+         
+            for j in range(m):
+                if (coins[j] <= i):
+                    sub_res = table[i - coins[j]]
+                    if (sub_res != sys.maxsize and
+                        sub_res + 1 < table[i]):
+                        table[i] = sub_res + 1
+     
+        if table[V] == sys.maxsize:
+            return -1
+       
+        return table[V]
+```
 ## geeksforgeeks
 [Number of coins](https://practice.geeksforgeeks.org/problems/number-of-coins1824/1?page=2&difficulty[]=1&category[]=Dynamic%20Programming&sortBy=submissions)
