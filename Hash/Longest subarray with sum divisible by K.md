@@ -34,10 +34,36 @@ class Solution:
 	        
 	    return max_sum
  ```
+ 
+ ## Solution
+ ```python
+ class Solution:
+	def longSubarrWthSumDivByK (self,arr,  n, K) : 
+
+	    hash = {}
+	    
+	    curr_sum,max_ans = 0,0
+	    
+	    for i in range(n):
+	        curr_sum += arr[i]
+	        
+	        mod = curr_sum % K
+	        
+	        if mod == 0:
+	            max_ans = i+1
+	        
+	        elif mod in hash:
+	            max_ans = max(max_ans, i-hash[mod])
+	            
+	        else:
+	            hash[mod] = i
+	            
+	    return max_ans
+ ```
 #### Complexity
 ```bash
-Time Complexity :O(n^2)
-Space Complexity : O(1)
+Time Complexity :O(n)
+Space Complexity : O(n)
 ```
 
 ## Geeksforgeeks
