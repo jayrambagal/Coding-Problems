@@ -7,6 +7,7 @@ Maximum sub-array is defined in terms of the sum of the elements in the sub-arra
 
 ## Example 
 ```bash
+input
 Input:
 N = 3
 A[] = {1, 2, 3}
