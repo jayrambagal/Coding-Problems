@@ -20,7 +20,7 @@ Total amount you can rob = 1 + 3 = 4.
 ```
 ## Solution 3 (Dynamic Programing) --> Tabulation and space optimization
 ```Python
-class Solution:
+class Solution: # brut force solution
     
     def solve(self,arr,n):
         prev1 = arr[0]
