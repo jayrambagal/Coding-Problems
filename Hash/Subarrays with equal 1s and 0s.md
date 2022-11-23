@@ -1,5 +1,5 @@
 ## Subarrays with equal 1s and 0s
-Given an array containing 0s and 1s. Find the number of subarrays having equal number of 0s and 1s.
+Given an array containing 0s and 1s. Find the number of subarrays having equal numbers of 0s and 1s.
 
 ## Example 
 ```bash
