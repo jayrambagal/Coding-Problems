@@ -14,7 +14,7 @@ Output : 1
 
 ```
 
-## Solution 
+## Solution (DFS)
 
 ```python
 class Solution:
@@ -50,10 +50,39 @@ class Solution:
 Time Complexity :O(V) + O(E)
 Space Complexity : O(V)
 ```
-## Solution 
+## Solution (BFS) using kahn's Algorithm
 
 ```python
+class Solution:
+    def isCyclic(self, V, adj):
 
+        indegree = [0]*V
+        
+        for i in adj:
+            for j in i:
+                indegree[j]+=1
+                
+        q = []
+        ans = []
+        
+        for i in range(V):
+            if indegree[i] == 0:
+                q.append(i)
+        
+        while q:
+            m = q.pop(0)
+            ans.append(m)
+            
+            for i in adj[m]:
+                indegree[i]-=1
+                
+                if indegree[i]==0:
+                    q.append(i)
+                    
+        if len(ans)==V:
+            return False
+        else:
+            return True
 
      
 
