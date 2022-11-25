@@ -48,5 +48,43 @@ class Solution:
 Time Complexity :O(V) + O(E)
 Space Complexity : O(V)
 ```
+## Solution (DFS)
+
+```python
+
+from collections import defaultdict
+from typing import List
+class Solution:
+    
+    def isCycle(self, V: int, adj: List[List[int]]) -> bool:
+        
+        ver=[False]*(V)
+        
+        for i in range(V):
+            if ver[i]==False:
+                if self.cycle(ver,adj,i,-1) == True:
+                    return True
+        return False
+    
+    def cycle(self,ver,adj,s,parent):
+        ver[s]=True
+        for j in adj[s]:
+            if ver[j]==False:
+                if self.cycle(ver,adj,j,s)==True:
+                    return True
+            elif j!=parent:
+                return True
+        return False
+     
+
+        
+        
+
+ ```
+#### Complexity
+```bash
+Time Complexity :O(V) + O(E)
+Space Complexity : O(V)
+```
 ## Geeksforgeeks
 [Detect cycle in an undirected graph](https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1?page=1&difficulty[]=0&difficulty[]=1&status[]=unsolved&category[]=Graph&sortBy=submissions)
