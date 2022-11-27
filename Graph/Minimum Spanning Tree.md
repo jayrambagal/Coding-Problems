@@ -1,5 +1,7 @@
 ## Minimum Spanning Tree
-Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges, check whether it contains any cycle or not.
+Given a weighted, undirected and connected graph of V vertices and E edges. The task 
+
+is to find the sum of weights of the edges of the Minimum Spanning Tree.
 
 ## Example 
 
@@ -69,4 +71,4 @@ Time Complexity :
 Space Complexity : 
 ```
 ## Geeksforgeeks
-[Detect cycle in a directed graph](https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1?page=1&difficulty[]=0&difficulty[]=1&category[]=Graph&sortBy=submissions)
+[Minimum Spanning Tree](https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1?page=1&category[]=Graph&sortBy=submissions)
