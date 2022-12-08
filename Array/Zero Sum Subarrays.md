@@ -40,5 +40,44 @@ Space Complexity : O(1)
 
 ```
 
+``` python
+from typing import List
+from collections import defaultdict
+
+def countSubarrays(n: int, arr: List[int]) -> int:
+    
+    # To store the count.
+    count = 0
+    
+    # To store the count sum.
+    map = defaultdict(int)
+    map[0] = 1
+    
+    # To store the sum while traversing.
+    localSum = 0
+    
+    # Find all subarrays.
+    for i in range(n):
+        
+        # Update sum.
+        localSum += arr[i]
+        
+        # Check if sum is already present.
+        if localSum in map:
+            
+            # Update count.
+            count += map[localSum]
+        
+        # Update map.
+        map[localSum] += 1
+    
+    return count
+```
+```bash
+Time Complexity : O(n)
+Space Complexity : O(1)
+```
+
+
 ## Geeksforgeeks
 [Zero Sum Subarrays](https://practice.geeksforgeeks.org/problems/zero-sum-subarrays1825/1?page=1&difficulty[]=1&difficulty[]=2&status[]=unsolved&company[]=Amazon&company[]=Microsoft&company[]=Adobe&company[]=Facebook&category[]=Arrays&sortBy=submissions)
