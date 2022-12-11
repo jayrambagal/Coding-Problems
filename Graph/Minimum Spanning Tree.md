@@ -62,5 +62,67 @@ class Solution:
 Time Complexity :O(E*logE) + O(E*logE)
 Space Complexity : O(E)
 ```
+## Solution (Kruskals algo)
+
+```python
+from collections import defaultdict,deque
+import heapq
+import sys
+class Solution:
+        
+    def spanningTree(self, V, points):
+        
+        n = len(points)
+        edges = []
+        
+        for i in range(V):
+            for j,wt in points[i]:
+                edges.append((wt,i,j))
+            
+        # sort based on cost (i.e. distance)
+        edges.sort()
+        
+        # using Kruskal's algorithm to find the cost of Minimum Spanning Tree
+        res = 0
+        ds = DisjointSet(n)
+        for cost, u, v in edges:
+            if ds.find(u) != ds.find(v):
+                ds.union(u, v)
+                res += cost
+        
+        return res
+        
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+        self.rank = [1 for _ in range(n)]
+    
+    # make a and b part of the same component
+    # union by rank optimization
+    def union(self, a, b):
+        pa = self.find(a)
+        pb = self.find(b)
+        if pa == pb: return
+        if self.rank[pa] > self.rank[pb]:
+            self.parent[pb] = pa
+            self.rank[pa] += self.rank[pb]
+        else:
+            self.parent[pa] = pb
+            self.rank[pb] += self.rank[pa]
+    
+    # find the representative of the 
+    # path compression optimization
+    def find(self, a):
+        if self.parent[a] == a:
+            return a
+        
+        self.parent[a] = self.find(self.parent[a])
+        return self.parent[a]
+ ```
+#### Complexity
+```bash
+Time Complexity :O(N+E) + O(N*logN) + O(M*4*alpha)   
+Space Complexity : O(E)
+```
 ## Geeksforgeeks
 [Minimum Spanning Tree](https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1?page=1&category[]=Graph&sortBy=submissions)
