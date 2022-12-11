@@ -28,47 +28,39 @@ of 4 is shown above.
 
 ```
 
-## Solution
+## Solution (prims algo)
 
 ```python
+from collections import defaultdict,deque
+import heapq
 import sys
 class Solution:
         
     def spanningTree(self, V, graph):
         
+        ans = 0 
+        visited = [0]*V
+        q = [(0,0)]
         
-        weight = [sys.maxsize for i in range(V)]
-        visited = [False for i in range(V)]
+        while q:
+            wt,node = heapq.heappop(q)
+            
+            if visited[node]==1:
+                continue
         
-        weight[0] = 0
-        finalAns = 0
-
-        for i in range(V) :
-
-            minVertex = -1
-
-            for j in range(V) :
-
-                if visited[j] == False and (minVertex==-1 or weight[minVertex]>weight[j]) :
-
-                    minVertex = j
-
-            visited[minVertex] = True
-
-            finalAns = finalAns+weight[minVertex]
-
-            for ele,w in adj[minVertex] :
-
-                if visited[ele] == False and weight[ele]>w :
-
-                    weight[ele] = w
-
-        return finalAns
+            visited[node] = 1
+            ans+=wt
+            
+            for new_node,new_weight in graph[node]:
+                
+                if visited[new_node]==0:
+                    heapq.heappush(q,(new_weight,new_node))
+        return ans
  ```
 #### Complexity
 ```bash
-Time Complexity :
-Space Complexity : 
+Time Complexity :O(E*logE) + O(E*logE)
+Space Complexity : O(E)
 ```
 ## Geeksforgeeks
 [Minimum Spanning Tree](https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1?page=1&category[]=Graph&sortBy=submissions)
