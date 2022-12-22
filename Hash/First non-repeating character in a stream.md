@@ -54,6 +54,34 @@ class Solution:
 	    return "".join(ans)  
 
 ```
+## Solution 
+```python
+class Solution:
+    # @param A : string
+    # @return a strings
+    def solve(self, A):
+        n = len(A)
+        
+        freq = {}
+        new_freq = {}
+        ans = ""
+        
+        for i in range(n):
+            
+            if A[i] in freq:
+                del freq[A[i]]
+                new_freq[A[i]] = 1
+            elif A[i] not in freq and A[i] not in new_freq:
+                freq[A[i]] = 1
+                
+            if len(freq)!=0:
+                for key,val in freq.items():
+                    ans+=key
+                    break
+            else:
+                ans+="#"
+        return ans
+```
 
 
 
