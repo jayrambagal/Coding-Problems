@@ -78,6 +78,30 @@ Time Complexity : O(n)
 Space Complexity : O(1)
 ```
 
+## Solution
+```python
+from collections import defaultdict
+class Solution:
+    #Function to count subarrays with sum equal to 0.
+    def findSubArrays(self,nums,n):
+        
+        dic,sm,count = defaultdict(int),0,0
+        
+        for i in nums:
+            
+            sm += i
+            
+            if sm==0:
+                count+= 1+dic[sm]
+            else:
+                count+= dic[sm]
+                
+            dic[sm] += 1
+            
+        return count
+
+```
+
 
 ## Geeksforgeeks
 [Zero Sum Subarrays](https://practice.geeksforgeeks.org/problems/zero-sum-subarrays1825/1?page=1&difficulty[]=1&difficulty[]=2&status[]=unsolved&company[]=Amazon&company[]=Microsoft&company[]=Adobe&company[]=Facebook&category[]=Arrays&sortBy=submissions)
