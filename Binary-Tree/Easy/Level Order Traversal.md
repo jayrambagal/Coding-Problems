@@ -28,18 +28,15 @@ Output:10 20 30 40 60
 class Solution:
     def levelOrder(self,root ):
         
+        q = [root]
         ans = []
-        q = deque()
-        q.append(root)
-        
-        while q:     # check queue is not empty
-            for i in range(len(q)):
-                node = q.popleft()
-                
-                if node: # check node is not empty
-                    ans.append(node.data)
-                    q.append(node.left)
-                    q.append(node.right)
+        while q:
+            node = q.pop(0)
+            ans.append(node.data)
+            if node.left != None:
+                q.append(node.left)
+            if node.right != None:
+                q.append(node.right)
         return ans
         
 ```
