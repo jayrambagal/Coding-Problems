@@ -23,25 +23,24 @@ sum as 32.
 ## Solution 1 
 
 ```Python
-import sys
 class Solution:
-   
-    def findMaxSum(self, root): 
-        
-        ans = - sys.maxsize
 
+    def findMaxSum(self, root):
+        
+        res=[root.data]
+        
         def dfs(root):
-            nonlocal ans
             if not root:
                 return 0
-            l = dfs(root.left)
-            r = dfs(root.right)
-            v = root.data
-            ans = max(ans, max([v, l + r + v, l + v, r + v]))
-            return max([v, l + v, r + v])
+            leftmax=max(0,(dfs(root.left)))    # if left value is negitive then return 0
+            rightmax=max(0,(dfs(root.right)))
+
+            res[0]=max(res[0],root.data+leftmax+rightmax)
+            
+            return root.data+max(leftmax,rightmax)
 
         dfs(root)
-        return ans
+        return res[0]
 ```
 ```bash
 Time Complexity : O(n)
