@@ -23,30 +23,28 @@ Explanation: S is present in T
 
 ```Python
 class Solution:
+    
     def isSubTree(self, T, S):
         
-        if S is None:
+        if S==None:
             return True
-     
-        if T is None:
+        elif T == None:
             return False
-     
-        if (self.areIdentical(T, S)):
+            
+        if self.issub(T,S):
             return True
-     
-        return self.isSubTree(T.left, S) or self.isSubTree(T.right, S)
-                    
-    def areIdentical(self,root1, root2):
-         
-        if root1 is None and root2 is None:
+            
+        return self.isSubTree(T.left,S) or self.isSubTree(T.right,S)
+        
+    def issub(self,root1,root2):
+        if root2==None and root1==None:
             return True
-        if root1 is None or root2 is None:
+        elif root1==None or root2==None:
             return False
-     
-        return (root1.data == root2.data and
-                self.areIdentical(root1.left , root2.left)and
-                self.areIdentical(root1.right, root2.right)
-                )
+            
+        return (root1.data==root2.data and 
+                self.issub(root1.left,root2.left) and 
+                self.issub(root1.right, root2.right))
 ```
 ```bash
 Time Complexity : O(n)
