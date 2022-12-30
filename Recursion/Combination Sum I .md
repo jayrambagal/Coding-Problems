@@ -50,7 +50,7 @@ class Solution:
 ### Complexity
  
 ```bash
-Time Complexity : 
+Time Complexity : O(2^n) * k   k is the len(out)
 Space Complexity : 
 ```
 
