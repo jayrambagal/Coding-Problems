@@ -97,8 +97,8 @@ class Solution:
         
         dp = [[0 for _ in range(weight+1)]for __ in range(n+1)]
         
-        for i in range(wt[0],weight+1):
-            dp[0][i] = val[0]
+        for i in range(wt[0],weight+1):     # handling the base case in that line of code the (weight < wt[i]) less than weitght 
+            dp[0][i] = val[0]               # elements will be placed in dp[0][i] means greather than weight wt[i] will be handlled
     
     
         for i in range(1,n):
