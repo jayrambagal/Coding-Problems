@@ -12,6 +12,7 @@ Example: For the tree given below:
       9     8  -4 7
 
 Subtree with sum 7:
+
              -10
             /      \
           9        8
