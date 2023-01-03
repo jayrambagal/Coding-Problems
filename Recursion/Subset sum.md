@@ -13,6 +13,9 @@ Explanation: Here there exists a subset with
 sum = 9, 4+3+2 = 9.
 
 ```
+
+![image](https://user-images.githubusercontent.com/94613732/210337228-d277758a-dbfa-4f9e-af78-eafbbf574a64.png)
+
 ### Solution 
 
 ```python
