@@ -8,6 +8,7 @@ Given an array nums of distinct integers, return all the possible permutations. 
 Input: nums = [1,2,3]
 Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 ```
+![image](https://user-images.githubusercontent.com/94613732/210335601-059f442d-9820-4e10-9830-64ea49b45b8c.png)
 
 
 ## Solution  
