@@ -15,6 +15,7 @@ Output: [["a","a","b"],["aa","b"]]
 Input: s = "a"
 Output: [["a"]]
 ```
+![image](https://user-images.githubusercontent.com/94613732/210333090-23f03b31-ccc8-4e3c-9b5a-f737d64a3173.png)
 
 
 ## Solution
