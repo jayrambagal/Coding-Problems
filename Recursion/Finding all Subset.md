@@ -14,6 +14,8 @@ Input: nums = [0]
 Output: [[],[0]]
 
 ```
+![image](https://user-images.githubusercontent.com/94613732/210318374-66313089-47c5-40a4-acfa-cf9456db2c09.png)
+
 
 ## Solution 1 (Recursion)
 
