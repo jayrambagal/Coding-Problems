@@ -11,6 +11,8 @@ Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
 
 ```
+![image](https://user-images.githubusercontent.com/94613732/210330585-32eb41fb-572d-4bf2-ad7b-0800a1169f2d.png)
+
 
 ## Solution 1 (Recursion)
 
