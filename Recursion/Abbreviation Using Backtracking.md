@@ -1,3 +1,4 @@
+
 ## Abbreviation Using Backtracking
 1. You are given a word.
 2. You have to generate all abbrevations of that word.
@@ -22,6 +23,10 @@ p2
 2p
 3
 ```
+
+![IMG_20230104_163011 1](https://user-images.githubusercontent.com/94613732/210562776-363ee93d-2535-46cf-900c-265d428449f1.jpg)
+
+![IMG_20230104_163033 1](https://user-images.githubusercontent.com/94613732/210562861-1ff1a584-d75c-4bba-8e90-39358ef00f9c.jpg)
 ## Solution 
 ```Python
 def fun(strr, ans, count, pos):
