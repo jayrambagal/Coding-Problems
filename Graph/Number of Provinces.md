@@ -23,6 +23,7 @@ between them they belong to a single province. City 2 has no path to city 1 or c
 hence it belongs to another province.
 ```
 
+![image](https://user-images.githubusercontent.com/94613732/211148886-72a53538-07ee-445a-b3f3-22e3da6ae8c9.png)
 
 ## Solution
 
