@@ -121,4 +121,4 @@ Time Complexity : O(V^2) + O(4*alpha)
 Space Complexity : O(V)
 ```
 ## Geeksforgeeks
-[Number Of Islands](https://github.com/jayrambagal/Coding-Problems/new/main/Graph)
+[Number Of Islands](https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1)
