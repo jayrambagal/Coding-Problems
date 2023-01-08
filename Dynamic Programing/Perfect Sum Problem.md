@@ -41,7 +41,7 @@ Time Complexity = O(2^n)
 Space Complexity = O(n) --> Auxilary space recursion
 ```
 ### Solution 
-
+for checking subset sum is present or not and also print the all paths equal to sum.
 ![IMG_20230108_231724 1](https://user-images.githubusercontent.com/94613732/211211132-ff96c82a-fe7e-4323-815f-715188443c08.jpg)
 ![IMG_20230108_231738 1](https://user-images.githubusercontent.com/94613732/211211154-26cd8a40-da19-4b17-9c62-8b5faf858727.jpg)
 
