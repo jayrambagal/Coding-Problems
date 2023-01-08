@@ -78,43 +78,21 @@ Space Complexity: O(m*n) + O(m+n)
 ```Python
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if i > 0 and j > 0:
+                    grid[i][j] = min(grid[i][j] + grid[i-1][j], grid[i][j] + grid[i][j-1])
+                elif i > 0:
+                    grid[i][j] += grid[i-1][j]
+                elif j > 0:
+                    grid[i][j] += grid[i][j-1]
         
-        
-        m =len(grid)
-        n =len(grid[0])
-        dp = [[-1 for _ in range(n+1)]for __ in range(m+1)]
-        
-        return self.solve(m,n,grid)
-    
-    def solve(self,m,n,grid):
-        dp = [[-1 for _ in range(n)] for __ in range(m)]
-        
-        for i in range(m):
-            for j in range(n):
-                
-                if i==0 and j==0:
-                    dp[i][j]=grid[i][j]
-                    
-                else:
-                    up = grid[i][j]
-                    left = grid[i][j]
-                    
-                    if i>0:
-                        up =grid[i][j]+ dp[i-1][j]
-                    else:up+=1e9
-                        
-                    if j>0:
-                        left =grid[i][j]+ dp[i][j-1]
-                    else:left+=1e9
-                    
-                    dp[i][j] = min(up ,left)
-                
-        return dp[m-1][n-1]
+        return grid[-1][-1]
 
 ```
 ```bash
 Time Complexity : O(n*m)
-Space Complexity : O(n*m)
+Space Complexity : 
 ```
 ## Solution 3 (Dynamic Programing) --> Space Optimization
 ```Python
