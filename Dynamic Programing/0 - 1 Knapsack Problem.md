@@ -88,8 +88,26 @@ class Solution:
 ```
 ### Complexity
 ```bash
-Time Complexity = O(n)
+Time Complexity = O(n*n)
 Space Complexity = O(n)+O(n) 
+```
+## Solution tabulation
+```python
+class Solution:
+    
+    #Function to return max value that can be put in knapsack of capacity W.
+    def knapSack(self,W, wt, val, n):
+       
+       dp = [[0 for i in range(W+1)]for j in range(n+1)]
+       
+       for i in range(1,n+1):
+           for j in range(1,W+1):
+               dp[i][j] = dp[i-1][j]
+               
+               if j>=wt[i-1]:
+                   if (dp[i-1][j] < dp[i-1][j-wt[i-1]] + val[i-1] ):
+                       dp[i][j] = dp[i-1][j-wt[i-1]] + val[i-1]
+       return dp[-1][-1]
 ```
 
 [Knapsack Problem](https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)
