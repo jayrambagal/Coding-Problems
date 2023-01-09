@@ -75,13 +75,30 @@ Space Complexity : O(n*n)+O(n)
 ## Solution (Tabulation)
 ```python
 
-
+class Solution:
+    
+    #Function to find length of longest increasing subsequence.
+    def longestSubsequence(self,a,n):
+        
+        dp = [0]*(n)
+        
+        max_ans = 0
+        
+        for i in range(n):
+            ans = 0
+            for j in range(0,i):
+                if a[i]>a[j]:
+                    ans = max(ans,dp[j])
+            dp[i] = ans+1
+            max_ans = max(dp[i],max_ans)
+        return max_ans
+            
 ```
 	    
     
 
 ```bash
-Time Complexity : O(n)
+Time Complexity : O(n*n)
 Space Complexity : O(n)
 ```
 ## GeeksForgeeks
