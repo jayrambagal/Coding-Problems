@@ -17,6 +17,13 @@ the most efficient way is (A*(B*C))*D.
 The number of operations are -
 20*30*10 + 40*20*10 + 40*10*30 = 26000.
 ```
+![IMG_20230112_213429 1](https://user-images.githubusercontent.com/94613732/212119626-e02bd20a-775d-4aca-b83c-8682d0a974ad.jpg)
+
+![IMG_20230112_213442 1](https://user-images.githubusercontent.com/94613732/212119818-eaaa5c11-5710-4545-8a66-3cc5192597fa.jpg)
+
+![IMG_20230112_213458 1](https://user-images.githubusercontent.com/94613732/212119953-b50d691a-219a-4b40-9baf-e4a198c52b11.jpg)
+
+![IMG_20230112_213510 1](https://user-images.githubusercontent.com/94613732/212120064-bd7add12-9bec-43ff-8a97-57ed888b2fe3.jpg)
 
 ### Solution 
 
