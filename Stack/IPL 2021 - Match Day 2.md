@@ -66,20 +66,23 @@ Space Complexity = O()
 
 class Solution:
     def max_of_subarrays(self,arr,n,k):
-        dq = []
+        
+        q = []
         ans = []
         
         for i in range(n):
-            while dq and dq[0] == i-k:
-                dq.pop(0)
-                
-            while dq and arr[dq[-1]]<arr[i]:
-                dq.pop(-1)
-            dq.append(i)
             
-            if i>=k-1 :
-                ans.append(arr[dq[0]])
+            while q and q[0] == i-k:
+                q.pop(0)
+            
+            while q and arr[q[-1]] <= arr[i]:
+                q.pop()
                 
+            q.append(i)
+            
+            if i>=k-1:
+                ans.append(arr[q[0]])
+            
         return ans
         
 ```
