@@ -39,6 +39,27 @@ de
 e
 ```
 
+## Solution (brut force)
+
+```python
+class Solution:
+	def lps(self, s):
+	    
+		pre = ""
+		suf = ""
+		ans = 0
+		n = len(s)
+		
+		for i in range(n-1):
+		    pre+=s[i]
+		    suf = s[n-i-1] + suf
+		    
+		    if pre==suf:
+		        ans = len(pre)
+		        
+		return ans
+```
+
 ## Solution 
 
 ```python
