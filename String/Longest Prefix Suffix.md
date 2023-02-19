@@ -14,8 +14,30 @@ Input: s = "aaaa"
 Output: 3
 Explanation: "aaa" is the longest proper 
 prefix and suffix.
-```
 
+
+```
+### explanation
+```
+proper prifix == 0 to n-1 (n-1,n-2 anything) ---> not including nth position
+proper suffix means == 1 or 2... to  Nth position ---> not included 0th pos
+
+example:
+
+s = "abcde"
+
+proper prifix -->
+a
+ab
+abc
+abcd
+
+proper suffix -->
+bcde
+cde
+de
+e
+```
 
 ## Solution 
 
