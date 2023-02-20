@@ -35,46 +35,46 @@ Output:
 ## Solution 
 
 ```python
-def solve(s,n):
-    demo = []
+t = int(input())
+for i in range(t):
+    m = int(input())
+    s = input()
+    
+    
     add = 0
     sub = 0
-    for i in range(n):
-        try:
-            a = int(s[i])
-            demo.append(a)
-        except:
-            if s[i]=="+":
-                add+=1
-            else:
-                sub +=1
-        
-    demo.sort()
-    demo_len = len(demo)
-    ran = (add+sub)-1
-    j=0
+    arr = []
+    
+    for i in s:
+        if i=="+":
+            add+=1
+        elif i == "-":
+            sub+=1
+        else:
+            arr.append(i)
+    arr.sort()
+    
+    n = len(arr)
     ans = ""
-    for i in range(demo_len-1,ran,-1):
-        ans+=str(demo[i])
-        j=i
-    j = j-1
+    j = n-1
+    i = add+sub
+    
     while j>=0:
-        if add>0:
-            add-=1
-            ans+="+"
-        elif sub>0:
-            sub-=1
-            ans+="-"
-        ans+=str(demo[j])
-        j-=1
         
-    return ans
+        while j>=i:
+            ans+=str(arr[j])
+            j-=1
+        
+        if add>0:
+            ans+= "+"
+            add-=1
+        elif sub>0:
+            ans+= "-"
+            sub-=1
             
-            
-for _ in range(int(input())):
-    n = int(input())
-    s = input()
-    print(solve(s,n))
+        i = add+sub
+        
+    print(ans)
 
  ```
 #### Complexity
