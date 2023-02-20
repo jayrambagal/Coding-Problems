@@ -23,24 +23,31 @@ among 21,31,54,87,etc.
 ```python
 class Solution:
     def printMinNumberForPattern(ob,S):
-            l,c,ans=1,1,''
-            for i in S:
-                if i=="D":
-                    c+=1
-                else:
-                    x = c
-                    while l<=x:
-                        if str(x) not in ans:
-                            ans+=str(x)
-                        x-=1
-                    l = c
-                    c+=1
+        
+        ans = ""
+        count = 1
+        start = 1
+        
+        for i in S:
+            if i=="D":
+                count+=1
+            else:
+                ind = count
                 
-            while c>=l:
-                if str(c) not in ans:
-                    ans+=str(c)
-                c-=1
-            return ans
+                while start<= ind:
+                    if str(ind) not in ans:
+                        ans+=str(ind)
+                    ind-=1
+                    
+                start = count
+                count+=1
+                
+        while start<= count:
+            if str(count) not in ans:
+                ans+=str(count)
+            count-=1
+        
+        return ans
  ```
 #### Complexity
 ```bash
