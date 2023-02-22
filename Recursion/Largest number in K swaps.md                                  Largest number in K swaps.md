@@ -35,42 +35,34 @@ with 5, 4 with 5 and finally 3 with 4
 
 class Solution:
    
-   def findMaximumNum(self,s,k):
-      
-       maxi = [s]
-       string = [char for char in s]
-       idx = 0
-
-       self.findMaxNumUtil(string, k, idx, maxi)
-       
-       return maxi[0]
-   
-   def findMaxNumUtil(self, string, k, idx, maxi):
-       if k <= 0 or idx >= len(string)-1:
-           return
-       # Find maximum for idx+1 to n
-       max_in_str = string[idx]
-       for m in range(idx+1, len(string)):
-           if int(string[m]) > int(max_in_str):
-               max_in_str = string[m]
-       
-       if string[idx] != max_in_str:
-           k -= 1
-
-       # swap idx with max_in_str and recursively find maximum
-       for i in range(idx, len(string)):
-           if string[i] == max_in_str:
-               string[idx], string[i] = string[i], string[idx]
-               
-               new_str = "".join(string)
-               if int(new_str) > int(maxi[0]):
-                   maxi[0] = new_str
-               
-               # recur for chars idx+1 to n
-               self.findMaxNumUtil(string, k, idx+1, maxi)
-               
-               # backtrack
-               string[idx], string[i] = string[i], string[idx]
+    def findMaximumNum(self,s,k):
+        maxm = [s]
+        ans = self.solve(s,k,maxm)
+        return ans
+        
+    def solve(self,string, k, maxm):
+        if k == 0:
+            return
+        n = len(string)
+     
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+     
+                if string[i] < string[j]:
+                    string = self.swap(string, i, j)
+                    if string > maxm[0]:
+                        maxm[0] = string
+                    self.solve(string, k - 1, maxm)
+                    string = self.swap(string, i, j)
+        return maxm[0]
+        
+    def swap(self,s,i,j):
+           strr = ""
+           left = s[0:i]
+           right = s[j+1:len(s)]
+           mid = s[i+1:j]
+           strr = left+s[j]+mid+s[i]+right
+           return strr
 ```
 ### Complexity
  
