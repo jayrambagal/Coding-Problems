@@ -19,7 +19,22 @@ person will be killed. Thus the safe
 position is 3.
 
 ```
-
+## Solution 
+```python
+class Solution:
+    def josephus(self,n,k):
+        
+        ans = []
+        for i in range(1,n+1):
+            ans.append(i)
+            
+        ind = (k-1)%len(ans)   
+        while len(ans)>1:
+            ans.pop(ind)
+            ind = (ind+(k-1))%len(ans)
+            
+        return ans[0]
+```
 ## Solution 1 (Recursion)
 
 ```Python
