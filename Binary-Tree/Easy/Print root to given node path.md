@@ -39,6 +39,14 @@ Input 2:
 
 B = 1
 
+
+Example Output
+Output 1:
+
+ [1, 2, 5]
+Output 2:
+
+ [1]
 ```
 ## Solution 
 
