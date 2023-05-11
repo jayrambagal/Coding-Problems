@@ -41,65 +41,25 @@ Space Complexity : O(1)
 ```
 
 ``` python
-from typing import List
-from collections import defaultdict
-
-def countSubarrays(n: int, arr: List[int]) -> int:
-    
-    # To store the count.
-    count = 0
-    
-    # To store the count sum.
-    map = defaultdict(int)
-    map[0] = 1
-    
-    # To store the sum while traversing.
-    localSum = 0
-    
-    # Find all subarrays.
-    for i in range(n):
+class Solution:
+    def findSubArrays(self,arr,n):
+        freq = {0:1}
+        count = 0
+        summ = 0
         
-        # Update sum.
-        localSum += arr[i]
-        
-        # Check if sum is already present.
-        if localSum in map:
+        for i in arr:
+            summ+=i
             
-            # Update count.
-            count += map[localSum]
-        
-        # Update map.
-        map[localSum] += 1
-    
-    return count
+            if summ in freq:
+                count+=freq[summ]
+                freq[summ]+=1
+            else:
+                freq[summ] = 1
+        return count
 ```
 ```bash
 Time Complexity : O(n)
-Space Complexity : O(1)
-```
-
-## Solution
-```python
-from collections import defaultdict
-class Solution:
-    #Function to count subarrays with sum equal to 0.
-    def findSubArrays(self,nums,n):
-        
-        dic,sm,count = defaultdict(int),0,0
-        
-        for i in nums:
-            
-            sm += i
-            
-            if sm==0:
-                count+= 1+dic[sm]
-            else:
-                count+= dic[sm]
-                
-            dic[sm] += 1
-            
-        return count
-
+Space Complexity : O(n)
 ```
 
 
